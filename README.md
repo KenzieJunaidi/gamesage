@@ -10,8 +10,6 @@
 - Rayvel Geraldo Budiyono (https://github.com/RayvelGB)
 - Calvin Junaidy (https://github.com/CalvinJ45)
 
-(*Contributor names are placeholders and can be updated accordingly.*)
-
 ---
 
 ## 📌 Project Overview
