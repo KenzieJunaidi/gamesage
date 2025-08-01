@@ -1,0 +1,624 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+
+    top: 10%;
+    position: absolute;
+}
+
+.logo-container img {
+    width: 30%;
+    height: auto;
+
+    user-select: none; 
+    -webkit-user-drag: none; 
+}
+
+.search-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    flex-direction: column;
+}
+
+.searching-box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.search-bar {
+    width: 800px;
+    height: 50px;
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid #ccc;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+
+    z-index: 1;
+}
+
+.search-button {
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-left: none; 
+    background-color: white;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+.search-button img {
+    width: 25px;
+    height: auto;
+}
+
+.suggestions-box {
+    position: absolute;
+    background: white;
+    width: 855px;
+    max-height: 165px;
+    border-radius: 10px;
+    z-index: 10;
+    overflow-y: auto;
+
+    top: 8vh;
+    flex-direction: column-reverse;
+}
+
+.suggestions-box div {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    padding-left: 20px;
+    color: black;
+    background-color: white;
+}
+  
+.suggestions-box div:hover {
+    background-color: lightgrey;
+}
+
+.suggestions-box::-webkit-scrollbar {
+    width: 10px;
+}
+
+.suggestions-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 10px 10px 0;
+}
+
+.suggestions-box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+
+    min-height: 20px;
+}
+
+.suggestions-box::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.randomizer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    margin-top: -11%;
+    width: 850px;
+}
+
+.randomizer h4{
+    color: rgb(209, 209, 209);
+    font-weight: 100;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.randomizer h4:hover {
+    text-decoration: underline;
+}
+
+.recommendation-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    bottom: 0;
+}
+
+.recommendations-carousel {
+    width: 80%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    display: none; /* Hidden by default */
+    bottom: 20%;
+}
+
+.recommendations-carousel .slide {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #131313;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 15px;
+    width: 150px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.recommendations-carousel .slide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(61, 61, 61);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.recommendations-carousel .slide img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.recommendations-carousel .game-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 100%;
+    height: 55%;
+    text-align: left;
+}
+
+.recommendations-carousel .game-info .top-info {
+    flex-shrink: 0;
+}
+  
+.recommendations-carousel .game-info .bottom-info {
+    margin-top: auto;
+}  
+
+.recommendations-carousel .top-info .game-title {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.recommendations-carousel .top-info .game-price {
+    margin: 5px 0;
+    font-size: .9rem;
+    color: white;
+}
+
+.recommendations-carousel .bottom-info .game-developer {
+    margin: 5px 0;
+    font-size: .6rem;
+    color: white;
+}
+
+.recommendations-carousel .bottom-info .game-publisher {
+    margin: 5px 0;
+    font-size: .6rem;
+    color: white;
+}
+
+.recommendations-carousel .bottom-info .game-platform {
+    margin: 5px 0;
+    font-size: .6rem;
+    color: white;
+}
+
+.games-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    margin-top: 1500px;
+}
+
+.games-container h2 {
+    color: white;
+    font-size: 2.8rem;
+}
+
+.games-container hr {
+    width: 75%;
+    margin-top: 20px;
+}
+
+.popular-games-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+}
+
+.popular-games-carousel {
+    width: 80%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.popular-games-carousel .slide {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #131313;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 15px;
+    width: 150px;
+    height: 20%;
+    overflow: hidden;
+}
+
+.popular-games-carousel .slide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(61, 61, 61);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.popular-games-carousel .slide img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.popular-games-carousel .game-info {
+    width: 100%;
+    height: 55%;
+    text-align: left;
+    color: white;
+}
+
+.popular-games-carousel .game-info .game-price {
+    margin: 5px 0;
+    font-size: .9rem;
+    color: white;
+}
+
+.free-games-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    margin-top: 1000px;
+}
+
+.free-games-carousel {
+    width: 80%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.free-games-carousel .slide {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #131313;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 15px;
+    width: 150px;
+    height: 20%;
+    overflow: hidden;
+}
+
+.free-games-carousel .slide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(61, 61, 61);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.free-games-carousel .slide img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.free-games-carousel .game-info {
+    width: 100%;
+    height: 55%;
+    text-align: left;
+    color: white;
+}
+
+.free-games-carousel .game-info .game-price {
+    margin: 5px 0;
+    font-size: .9rem;
+    color: white;
+}
+
+.action-games-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    margin-top: 2000px;
+}
+
+.action-games-carousel {
+    width: 80%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.action-games-carousel .slide {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #131313;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 15px;
+    width: 150px;
+    height: 20%;
+    overflow: hidden;
+}
+
+.action-games-carousel .slide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(61, 61, 61);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.action-games-carousel .slide img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.action-games-carousel .game-info {
+    width: 100%;
+    height: 55%;
+    text-align: left;
+    color: white;
+}
+
+.action-games-carousel .game-info .game-price {
+    margin: 5px 0;
+    font-size: .9rem;
+    color: white;
+}
+
+.rpg-games-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    margin-top: 3000px;
+}
+
+.rpg-games-carousel {
+    width: 80%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.rpg-games-carousel .slide {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #131313;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 15px;
+    width: 150px;
+    height: 20%;
+    overflow: hidden;
+}
+
+.rpg-games-carousel .slide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(61, 61, 61);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.rpg-games-carousel .slide img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.rpg-games-carousel .game-info {
+    width: 100%;
+    height: 55%;
+    text-align: left;
+    color: white;
+}
+
+.rpg-games-carousel .game-info .game-price {
+    margin: 5px 0;
+    font-size: .9rem;
+    color: white;
+}
+
+.strategy-games-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    margin-top: 4000px;
+}
+
+.strategy-games-carousel {
+    width: 80%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.strategy-games-carousel .slide {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #131313;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 15px;
+    width: 150px;
+    height: 20%;
+    overflow: hidden;
+}
+
+.strategy-games-carousel .slide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(61, 61, 61);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.strategy-games-carousel .slide img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.strategy-games-carousel .game-info {
+    width: 100%;
+    height: 55%;
+    text-align: left;
+    color: white;
+}
+
+.strategy-games-carousel .game-info .game-price {
+    margin: 5px 0;
+    font-size: .9rem;
+    color: white;
+}
+
+.slick-dots li {
+  max-width: 4px;
+  max-height: 4px;
+  background-color: #555;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  top: -20px;
+  left: -20px;
+}
+
+.slick-dots li.slick-active {
+  background-color: white;
+}
+
+.slick-dots li button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  opacity: 0;
+  cursor: default;
+  border: none;
+  background: transparent;
+}
+

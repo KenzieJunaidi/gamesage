@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #1e1e1e;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+/* Main container */
+.game-details-container {
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+  
+/* Header */
+.game-header {
+  text-align: left;
+  margin-left: 10px;
+}
+  
+.game-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+  
+.game-header p {
+  font-size: 1rem;
+  color: lightgrey;
+}
+  
+/* Game info layout */
+.game-info-container {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+  
+/* Carousel */
+.carousel-container {
+  position: relative;
+  width: 65%;
+  background-color: #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+  
+.slick-slide {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 0;
+}
+  
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+  
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+
+.slick-dots-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Dots container */
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.slick-dots li {
+  flex: 1;
+  max-height: 4px;
+  background-color: #555;
+  border-radius: 100px;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  bottom: 5px;
+}
+
+.slick-dots li.slick-active {
+  background-color: white;
+}
+
+.slick-dots li button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  opacity: 0;
+  cursor: default;
+  border: none;
+  background: transparent;
+}
+  
+/* Image and description */
+.image-and-description {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+  
+#game-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+  
+.description-box {
+  background-color: #333;
+  padding: 5px;
+  border-radius: 5px;
+  overflow-y: auto;
+  max-height: 120px;
+}
+  
+.description-box p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: lightgrey;
+  text-align: justify;
+  margin: 5px;
+}
+
+/* Extra game info */
+.game-extra-info {
+  /* background-color: #333; */
+  padding: 15px 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.info-row {
+  display: flex;
+  gap: 5px;
+}
+
+.info-row strong {
+  width: 100px;
+  color: white;
+  font-size: 0.75rem;
+}
+
+.info-row span {
+  color: lightgrey;
+  font-size: 0.75rem;
+  width: 220px;
+}
+
+#all-review {
+  display: inline;
+  margin-bottom: 17px;
+}
+
+#release-date {
+  display: inline;
+  margin-bottom: 17px;
+}
+  
+/* Genres */
+#genre-tags {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 5px;
+}
+  
+#genre-tags strong {
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
+  
+#tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+  
+#tags-container span {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 0.65rem;
+}
+  
+/* Back button */
+#back-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+  
+#back-button:hover {
+  background-color: #0056b3;
+}
+
+.description-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.description-box::-webkit-scrollbar-track {
+  background: #3f3f3f;
+  border-radius: 4px;
+}
+
+.description-box::-webkit-scrollbar-thumb {
+  background: #1e1e1e;
+  border-radius: 4px;
+}
