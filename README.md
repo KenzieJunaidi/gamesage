@@ -8,8 +8,7 @@ By combining categorical features (like genres/tags) and textual features (proce
 - Python  
 - Scikit-learn (KNN, cosine similarity)  
 - Transformers (textual feature extraction)  
-- Pandas & NumPy (data wrangling)  
-- Matplotlib (data exploration/visualization)  
+- Pandas & NumPy
 - Steam Web API  
 
 ## 🚀 Features  
@@ -24,12 +23,12 @@ By combining categorical features (like genres/tags) and textual features (proce
 
 - Fetched via Steam API (game list, details, reviews)  
 - Transformed into a structured custom dataset with 6000+ entries  
-- Includes both categorical features (genres, tags, platforms) and textual features (descriptions, reviews)  
+- Includes both categorical features (e.g., genres, tags, platforms) and textual features (e.g., game descriptions, user reviews)  
+- Applied data cleaning (removing duplicates, handling missing values, and normalizing text) to ensure dataset quality  
 
 ## 🌠 The Process  
 
-The idea behind GameSage was to build a practical and scalable recommendation system tailored for gamers. Rather than relying on user-user collaborative filtering, we focused on **content-based filtering**, which lets the system work well even for lesser-known games. 
-We started by fetching data directly from Steam’s API, shaping it into a structured dataset, and then applying both categorical encodings and transformer-based embeddings for textual data. With KNN and cosine similarity as the model core, GameSage can recommend games based on a player’s favorite title, genre, or description.  
+The idea behind GameSage was to build a practical and scalable recommendation system tailored for gamers. Rather than relying on user-user collaborative filtering, we focused on content-based filtering, which lets the system work well even for lesser-known games. We started by fetching data directly from Steam’s API, performing data cleaning (removing duplicates, handling missing values, and normalizing text), and shaping it into a structured dataset. From there, we applied both categorical encodings and transformer-based embeddings for textual data. With KNN and cosine similarity as the model core, GameSage can recommend games based on a player’s favorite title, genre, or description.
 
 ## ⚙️ Running the Project  
 
